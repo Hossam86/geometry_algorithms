@@ -3,4 +3,4 @@ project(practical_geometry_algorithms)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(practical_geometry_algorithms main.cpp)
+add_executable(playground playground.cpp)
