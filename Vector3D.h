@@ -21,4 +21,20 @@ struct Vector3D {
     const float &operator[](int i) const {
         return ((&x)[i]);
     }
+
+    Vector3D &operator*=(float s) {
+        x *= s;
+        y *= s;
+        z *= s;
+        return (*this);
+    }
+
+    Vector3D &operator/=(float s) {
+        s = 1.0f / s;
+        x *= s;
+        y *= s;
+        z *= s;
+        return (*this);
+    }
 };
+
