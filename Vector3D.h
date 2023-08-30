@@ -3,6 +3,7 @@
 
 #include <cmath>
 
+// reference --> "Foundations of Game Engine Development" Eric Lengyel;
 struct Vector3D {
     float x, y, z;
 
@@ -36,7 +37,29 @@ struct Vector3D {
         z *= s;
         return (*this);
     }
+
+    Vector3D &operator+=(const Vector3D &v) {
+        x += v.x;
+        y += v.y;
+        z += v.z;
+        return (*this);
+    }
+
+    Vector3D operator-=(const Vector3D &v) {
+        x -= v.x;
+        y -= v.y;
+        z -= v.z;
+        return (*this);
+    }
 };
+
+inline Vector3D operator+(const Vector3D &a, const Vector3D &b) {
+    return Vector3D(a.x + b.x, a.y + b.y, a.z + b.z);
+}
+
+inline Vector3D operator-(const Vector3D &a, const Vector3D &b) {
+    return Vector3D(a.x - b.x, a.y - b.y, a.z - b.z);
+}
 
 inline Vector3D
 operator*(const Vector3D &v, float s) {
