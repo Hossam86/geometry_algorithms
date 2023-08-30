@@ -36,3 +36,11 @@ struct Vector3D {
     }
 };
 
+inline Vector3D operator*(const Vector3D &v, float s) {
+    return (Vector3D(v.x * s, v.y * s, v.z * s));
+}
+
+inline Vector3D operator/(const Vector3D &v, float s) {
+    s = 1.0f / s;
+    return (Vector3D(v.x * s, v.y * s, v.z * s));
+}
