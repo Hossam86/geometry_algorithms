@@ -22,9 +22,23 @@ public:
     }
 
     Matrix3D(const Vector3D &a, const Vector3D &b, const Vector3D &c) {
-        n[0][0] = a.x; n[0][1] = a.y; n[0][2] = a.z;
-        n[1][0] = b.x; n[1][1] = b.y; n[1][2] = b.z;
-        n[2][0] = c.x; n[2][1] = c.y; n[2][2] = c.z;
+        n[0][0] = a.x;
+        n[0][1] = a.y;
+        n[0][2] = a.z;
+        n[1][0] = b.x;
+        n[1][1] = b.y;
+        n[1][2] = b.z;
+        n[2][0] = c.x;
+        n[2][1] = c.y;
+        n[2][2] = c.z;
+    }
+
+    float &operator()(int i, int j) {
+        return (n[j][i]);
+    }
+
+    const float &operator()(int i, int j) const {
+        return (n[j][i]);
     }
 
 };
