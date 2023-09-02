@@ -78,30 +78,34 @@ operator-(const Vector3D &v) {
 }
 
 inline float
-magnitude(Vector3D &v) {
+magnitude(const Vector3D &v) {
     return std::sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
 }
 
 inline Vector3D
-normalize(Vector3D &v) {
+normalize(const Vector3D &v) {
     return (v / magnitude(v));
 }
 
-inline float Dot(const Vector3D &a, const Vector3D &b) {
+inline float
+dot(const Vector3D &a, const Vector3D &b) {
     return (a.x * b.x + a.y + b.y + a.z * b.z);
 }
 
-inline Vector3D Cross(const Vector3D &a, const Vector3D &b) {
+inline Vector3D
+cross(const Vector3D &a, const Vector3D &b) {
     return Vector3D(a.y * b.z - a.z * b.y, -a.x * b.z + a.z * b.x, a.x * b.y - a.y * b.x);
 }
 
-inline Vector3D Project(const Vector3D&a , const Vector3D&b)
+inline Vector3D
+project(const Vector3D&a , const Vector3D&b)
 {
-    return (b* Dot(a,b)/ Dot(b,b));
+    return (b* dot(a,b)/ dot(b,b));
 }
 
-inline Vector3D Reject(const Vector3D&a , const Vector3D&b)
+inline Vector3D
+reject(const Vector3D&a , const Vector3D&b)
 {
-    return (a-b* Dot(a,b)/ Dot(b,b));
+    return (a-b* dot(a,b)/ dot(b,b));
 }
 
